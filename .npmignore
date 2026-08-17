@@ -1,0 +1,10 @@
+# Publish whitelist is controlled by package.json "files".
+# This .npmignore only excludes dev/CI noise so that `files` (lib/,
+# cordis.yml, README.md, LICENSE) is packed verbatim. Do NOT add `lib`
+# here — it is a required build artifact that must ship to npm.
+.github
+*.tsbuildinfo
+*.log
+npm-debug.log*
+test-patch.yml
+_dsh_*.png

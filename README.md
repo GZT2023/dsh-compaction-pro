@@ -77,20 +77,15 @@ dsh 的 loader 直接加载 `.ts` 源文件（内部 transpile；官方 dev 用 
     maxTokens: 8192
 ```
 
-### 方式 B：发布后（npm）
+### 方式 B：从 npm 安装（推荐）
 
 ```bash
-npm publish
+dsh plugin --profile web add dsh-compaction-pro
 ```
 
-```yaml
-- id: compaction-pro
-  name: 'dsh-compaction-pro'
-  config:
-    faithful: true
-    recursive: true
-    summaryLanguage: auto
-```
+安装后，仍需在 `~/.dsh/profiles/web/cordis.patch.yml` 里**禁用内置
+`dsh-compaction-basic`**（见上方「⚠️ 必做」说明），否则两个 `ctx.compaction`
+后端冲突、dsh 启动即崩。本插件已在 `apply()` 里打印启动自检横幅提示该冲突。
 
 ---
 
