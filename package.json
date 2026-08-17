@@ -1,0 +1,59 @@
+{
+  "name": "dsh-compaction-pro",
+  "version": "0.1.0",
+  "description": "High-fidelity, faithful, bilingual, recursive compaction backend for DeepSeek Harness — a drop-in upgrade over dsh-compaction-basic.",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "author": "helibeiqi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/helibeiqi/dsh-compaction-pro.git"
+  },
+  "homepage": "https://github.com/helibeiqi/dsh-compaction-pro#readme",
+  "bugs": {
+    "url": "https://github.com/helibeiqi/dsh-compaction-pro/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "compaction",
+    "context",
+    "summarization",
+    "prompt-compression"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-compaction": "*",
+    "@deepseek-ai/dsh-compaction-basic": "*",
+    "@deepseek-ai/dsh-llm": "*",
+    "@deepseek-ai/dsh-agent": "*"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "tsx": "^4.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "tsc -p tsconfig.json --watch"
+  }
+}

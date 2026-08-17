@@ -1,0 +1,11 @@
+node_modules/
+lib/
+*.log
+*.tsbuildinfo
+_dsh_*.png
+test-patch.yml
+npm-debug.log*
+.npmrc
+.DS_Store
+.idea/
+.vscode/
