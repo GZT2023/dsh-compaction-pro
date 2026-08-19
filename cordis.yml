@@ -3,7 +3,7 @@
 # LOCAL DEV (no build, no publish): point `name` at the compiled-or-source file.
 # dsh's loader runs .ts directly via tsx, so this works against the live source:
 - id: compaction-pro
-  name: 'C:/Users/helib/dsh-plugins/dsh-compaction-pro/src/index.ts'
+  name: 'C:/Users/<you>/dsh-plugins/dsh-compaction-pro/src/index.ts'
   config:
     thresholdRatio: 0.8
     retainRatio: 0.16

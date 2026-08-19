@@ -46,7 +46,7 @@ dsh 的 loader 直接加载 `.ts` 源文件（内部 transpile；官方 dev 用 
 
 ```yaml
 - id: compaction-pro
-  name: 'C:/Users/helib/dsh-plugins/dsh-compaction-pro/src/index.ts'
+  name: 'C:/Users/<you>/dsh-plugins/dsh-compaction-pro/src/index.ts'
   config:
     faithful: true
     recursive: true
@@ -67,7 +67,7 @@ dsh 的 loader 直接加载 `.ts` 源文件（内部 transpile；官方 dev 用 
   disabled: true
 # 2) 注册 pro 后端
 - id: compaction-pro
-  name: 'C:/Users/helib/dsh-plugins/dsh-compaction-pro/src/index.ts'
+  name: 'C:/Users/<you>/dsh-plugins/dsh-compaction-pro/src/index.ts'
   config:
     faithful: true
     recursive: true
