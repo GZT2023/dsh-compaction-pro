@@ -94,8 +94,11 @@ function resolveSummarizeTarget(
       + '(set summarizationProvider/summarizationModel, route one request, or set AgentOptions)',
     )
   }
-  const provider = config.summarizationProvider.length > 0 ? config.summarizationProvider : target.provider
-  const model = config.summarizationModel.length > 0 ? config.summarizationModel : target.model
+  // `summarizationProvider`/`summarizationModel` are optional: when left
+  // unset (the documented default — "reuse the conversation's routed model")
+  // they are `undefined`, so guard against reading `.length` on them.
+  const provider = config.summarizationProvider ? config.summarizationProvider : target.provider
+  const model = config.summarizationModel ? config.summarizationModel : target.model
   return { provider, model }
 }
 

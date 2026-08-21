@@ -179,6 +179,22 @@ npm run build        # 产出 lib/（发布用）
 
 ---
 
+## 测试
+
+本插件带一套 **vitest** 单元测试，覆盖纯逻辑层（指令构建、配置解析、摘要编排），
+并通过 mock 拦截 `@deepseek-ai/dsh-llm`，**无需真实 cordis 运行时或 API Key** 即可离线运行：
+
+```bash
+npm install      # 含 .npmrc：legacy-peer-deps，跳过重型 cordis 依赖
+npm test         # vitest run —— 覆盖 buildInstruction / partialInstruction /
+                 # mergeInstruction / resolveProConfig / proSummarize 全部分支
+```
+
+测试重点验证了修复过的真实缺陷：当 `summarizationProvider` / `summarizationModel`
+未配置（文档默认"复用会话路由模型"）时，必须回落到路由模型而非崩溃。
+
+CI 在每次 push / PR 到 `main` 时自动运行 `npm test`（见 `.github/workflows/ci.yml`）。
+
 ## 兼容性
 
 - **测试版本**：`dsh` v0.1.0-rc.6（DeepSeek Harness 开发者预览期）。
