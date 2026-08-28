@@ -1,6 +1,6 @@
 {
   "name": "@helibeiqi/dsh-compaction-pro",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "High-fidelity, faithful, bilingual, recursive compaction backend for DeepSeek Harness — a drop-in upgrade over dsh-compaction-basic.",
   "type": "module",
   "main": "lib/index.js",
