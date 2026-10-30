@@ -1,16 +1,14 @@
-
 fix: 适配 DSH 0.2.0 接口规范，修复 TS 编译报错并更新安装文档
 
 快速安装：
-dsh plugin --profile web add github:GZT2023/dsh-compaction-pro
 
+dsh plugin --profile web add github:GZT2023/dsh-compaction-pro
 
 方式 B：本地打包安装
 
 1.下载本仓库源码并解压。
 
 2.进入源码目录，执行：
-
 
 pnpm install
 
@@ -30,48 +28,74 @@ dsh plugin --profile web add ./GZT2023-dsh-compaction-pro-0.2.0-fix.tgz
 
   
 卸载插件方法：
+
 A：
+
 dsh plugin --profile web remove @GZT2023/dsh-compaction-pro
 
+
 B：
+
  方式二：手动彻底清理（如果命令报错，用这个最稳妥）
+ 
 如果你想彻底把这个插件拔干净，手动操作只需改两个文件，删一个文件夹：
 
+
 1. 修改 package.json
+
 打开 C:\Users\你的用户名\.dsh\profiles\web\package.json：
 
 在 dependencies 里，删掉 "@GZT2023/dsh-compaction-pro": "0.2.0-fix",（或 @helibeiqi/...）。
 
+
 在 dsh.profile.bundles 数组里，删掉 "@GZT2023/dsh-compaction-pro",。
 
 2. 修改 cordis.patch.yml
+
 打开 C:\Users\你的用户名\.dsh\profiles\web\cordis.patch.yml：
+
 
 删掉你之前手动添加或自动生成的 compaction-pro 配置块。
 
-非常重要：把官方默认的压缩引擎的禁用状态取消掉。找到 - id: compaction-basic 那一行，把下面的 disabled: true 删掉（或者改成 disabled: false），这样 DSH 才能恢复使用官方默认的压缩功能。
+
+非常重要：把官方默认的压缩引擎的禁用状态取消掉。找到 - id: compaction-basic 那一行，把下面的 disabled: true 删掉（或者改成 disabled: false），
+这样 DSH 才能恢复使用官方默认的压缩功能。
+
 
 修改后大概长这样：
 
+
 yaml
+
 # 恢复官方压缩
+
 - id: compaction-basic
   disabled: false
+
   
 3. 删除物理文件夹
+
 在 PowerShell 中执行，把残留在本地的包文件删掉：
 
 powershell
+
 # 删掉你修改版的文件夹
+
 Remove-Item -Recurse -Force "C:\Users\你的用户名\.dsh\profiles\web\node_modules\@GZT2023\dsh-compaction-pro" -ErrorAction SilentlyContinue
 
+
 # 如果你之前还装过原版，把原版的文件夹也删了
+
 Remove-Item -Recurse -Force "C:\Users\你的用户名\.dsh\profiles\web\node_modules\@helibeiqi\dsh-compaction-pro" -ErrorAction SilentlyContinue
+
 ✅ 验证是否卸载干净
+
 清理完毕后，重启 DSH 前先跑一下验证命令：
 
 powershell
+
 dsh --profile web --dump-config
+
 
 在输出结果中：
 
@@ -80,7 +104,6 @@ dsh --profile web --dump-config
 compaction-basic 后面不能有 disabled: true。
 
 如果符合上述条件，直接运行 dsh --profile web，你的 DSH 就已经完全恢复到了没有安装这个插件之前的状态了。
-
 
 如果曾经安装过fork的源版导致安装失败，需要先清除源版：
 
@@ -91,44 +114,64 @@ compaction-basic 后面不能有 disabled: true。
 请按以下步骤“外科手术式”清理：
 
 🛠️ 第一步：手动清理 package.json
+
 打开文件：C:\Users\你的用户名\.dsh\profiles\web\package.json
 
 找到 "dependencies"，删掉这一行：
+
 "@helibeiqi/dsh-compaction-pro": "0.2.0",
+
 (如果看到 @GZT2023/... 也一并删掉)
 
 找到 "dsh" -> "profile" -> "bundles" 数组，删掉里面的：
+
 "@helibeiqi/dsh-compaction-pro",
+
 (如果有 @GZT2023/... 也一并删掉)
 
 修改完后，文件里不应该再出现这两个包名中的任何一个。
 
+
 🧹 第二步：清理 cordis.patch.yml
+
 打开文件：C:\Users\你的用户名\.dsh\profiles\web\cordis.patch.yml
+
 
 滑到文件最底部，如果看到类似这样的配置，全部删掉：
 
+
 yaml
 # == @helibeiqi/dsh-compaction-pro
+
 - id: compaction-pro
   name: '@helibeiqi/dsh-compaction-pro'
   ...
+  
 (保留 - id: compaction-basic 和 disabled: true 即可)
 
+
 💥 第三步：清理物理文件和锁文件
+
 在 PowerShell 中执行以下命令，删掉物理残留和旧的锁文件：
 
 powershell
 # 1. 删掉旧的物理包文件夹（防止 pnpm 软链接残留）
+
 Remove-Item -Recurse -Force "C:\Users\你的用户名\.dsh\profiles\web\node_modules\@helibeiqi" -ErrorAction SilentlyContinue
 
+
 # 2. 删掉 pnpm 的锁文件（强制 pnpm 重新解析干净的依赖树）
+
 Remove-Item -Force "C:\Users\你的用户名\.dsh\profiles\web\pnpm-lock.yaml" -ErrorAction SilentlyContinue
+
 🚀 第四步：重新安装你的新包
+
 现在环境已经彻底干净了，再次执行你的安装命令：
 
 powershell
+
 dsh plugin --profile web add ./GZT2023-dsh-compaction-pro-0.2.0-fix.tgz
+
 这一次，因为没有旧依赖的干扰，pnpm 会直接把你新打的包安装进去，并自动把 @GZT2023/dsh-compaction-pro 写到 package.json 和 cordis.patch.yml 里。
 
 # dsh-compaction-pro
