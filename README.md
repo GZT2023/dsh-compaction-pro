@@ -13,8 +13,11 @@ dsh plugin --profile web add github:GZT2023/dsh-compaction-pro
 
 
 pnpm install
+
 pnpm run build
+
 pnpm pack
+
 
 3.安装生成的 tgz 包：
 
