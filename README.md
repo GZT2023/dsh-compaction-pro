@@ -5,6 +5,7 @@ fix: 适配 DSH 0.2.0 接口规范，修复 TS 编译报错并更新安装文档
 dsh plugin --profile web add github:GZT2023/dsh-compaction-pro
 
 然后复制以下代码到"C:\Users\你的用户名\.dsh\profiles\web\cordis.patch.yml"末尾以生效
+
 - id: compaction-basic
   disabled: true
 - id: compaction-pro
