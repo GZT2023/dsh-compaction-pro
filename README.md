@@ -1,3 +1,29 @@
+
+fix: 适配 DSH 0.2.0 接口规范，修复 TS 编译报错并更新安装文档
+
+快速安装：
+dsh plugin --profile web add github:GZT2023/dsh-compaction-pro
+
+
+方式 B：本地打包安装
+
+1.下载本仓库源码并解压。
+
+2.进入源码目录，执行：
+
+
+pnpm install
+pnpm run build
+pnpm pack
+
+3.安装生成的 tgz 包：
+
+dsh plugin --profile web add ./GZT2023-dsh-compaction-pro-0.2.0-fix.tgz
+
+
+
+
+
 # dsh-compaction-pro
 
 > DeepSeek Harness 的高保真上下文压缩后端 —— `dsh-compaction-basic` 的**无损升级替换**。
