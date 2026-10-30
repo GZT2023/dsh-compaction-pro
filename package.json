@@ -61,7 +61,6 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "dev": "tsc -p tsconfig.json --watch",
     "test": "vitest run",
-    "prepare": "pnpm run build",
     "prepublishOnly": "npm run build"
   }
 
