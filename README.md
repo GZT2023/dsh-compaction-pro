@@ -140,7 +140,7 @@ compaction-basic 后面不能有 disabled: true。
 滑到文件最底部，如果看到类似这样的配置，全部删掉：
 
 
-yaml
+yaml 
 # == @helibeiqi/dsh-compaction-pro
 
 - id: compaction-pro
