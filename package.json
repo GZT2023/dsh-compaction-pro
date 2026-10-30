@@ -1,7 +1,7 @@
 {
-  "name": "@helibeiqi/dsh-compaction-pro",
-  "version": "0.2.0",
-  "description": "High-fidelity, faithful, bilingual, recursive compaction backend for DeepSeek Harness — a drop-in upgrade over dsh-compaction-basic.",
+  "name": "@GZT2023/dsh-compaction-pro",
+  "version": "0.2.0-fix",
+  "description": "High-fidelity, faithful, bilingual, recursive compaction backend for DeepSeek Harness.",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -25,14 +25,10 @@
     "LICENSE"
   ],
   "license": "MIT",
-  "author": "helibeiqi",
+  "author": "GZT2023",
   "repository": {
     "type": "git",
-    "url": "https://github.com/helibeiqi/dsh-compaction-pro.git"
-  },
-  "homepage": "https://github.com/helibeiqi/dsh-compaction-pro#readme",
-  "bugs": {
-    "url": "https://github.com/helibeiqi/dsh-compaction-pro/issues"
+    "url": "https://github.com/GZT2023/dsh-compaction-pro.git"
   },
   "keywords": [
     "deepseek-harness",
@@ -40,9 +36,11 @@
     "dsh-plugin",
     "compaction",
     "context",
-    "summarization",
-    "prompt-compression"
+    "summarization"
   ],
+  "engines": {
+    "dsh": ">=0.2.0-rc.1 <0.3.0-0"
+  },
   "peerDependencies": {
     "@deepseek-ai/cordis": "*",
     "@deepseek-ai/dsh-compaction": "*",
@@ -63,7 +61,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "dev": "tsc -p tsconfig.json --watch",
     "test": "vitest run",
-    "test:watch": "vitest",
     "prepublishOnly": "npm run build"
   }
+
 }
