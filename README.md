@@ -6,19 +6,7 @@ dsh plugin --profile web add github:GZT2023/dsh-compaction-pro
 
 然后复制以下代码到"C:\Users\你的用户名\.dsh\profiles\web\cordis.patch.yml"末尾以生效
 
- - id: compaction-basic
-   disabled: true
- - id: compaction-pro
-   name: '@GZT2023/dsh-compaction-pro'
-   config:
-    faithful: true
-    recursive: true
-    summaryLanguage: auto
-    thresholdRatio: 0.8
-    retainRatio: 0.16
-    maxTokens: 8192
-    chunkMessages: 40
-    auto: true
+
 
 方式 B：本地打包安装
 
