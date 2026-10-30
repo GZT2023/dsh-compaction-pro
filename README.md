@@ -6,11 +6,11 @@ dsh plugin --profile web add github:GZT2023/dsh-compaction-pro
 
 然后复制以下代码到"C:\Users\你的用户名\.dsh\profiles\web\cordis.patch.yml"末尾以生效
 
-- id: compaction-basic
-  disabled: true
-- id: compaction-pro
-  name: '@GZT2023/dsh-compaction-pro'
-  config:
+ - id: compaction-basic
+   disabled: true
+ - id: compaction-pro
+   name: '@GZT2023/dsh-compaction-pro'
+   config:
     faithful: true
     recursive: true
     summaryLanguage: auto
@@ -39,11 +39,11 @@ dsh plugin --profile web add ./GZT2023-dsh-compaction-pro-0.2.0-fix.tgz
 
 4.⚠️ 必做（防崩溃）：安装后，务必在 C：/Users/你的用户名/.dsh/profiles/web/cordis.patch.yml 中添加：
 
-- id: compaction-basic
-  disabled: true
-- id: compaction-pro
-  name: '@GZT2023/dsh-compaction-pro'
-  config:
+ - id: compaction-basic
+   disabled: true
+ - id: compaction-pro
+   name: '@GZT2023/dsh-compaction-pro'
+   config:
     faithful: true
     recursive: true
     summaryLanguage: auto
